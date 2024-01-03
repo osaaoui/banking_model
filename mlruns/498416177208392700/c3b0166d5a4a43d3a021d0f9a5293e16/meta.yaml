@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/omarsaaoui/Documents/bdeb/2023/session_automne2023/cours_projet_synthese/projet/banking_model/mlruns/498416177208392700/c3b0166d5a4a43d3a021d0f9a5293e16/artifacts
+end_time: 1704175791166
+entry_point_name: ''
+experiment_id: '498416177208392700'
+lifecycle_stage: active
+run_id: c3b0166d5a4a43d3a021d0f9a5293e16
+run_name: popular-cow-859
+run_uuid: c3b0166d5a4a43d3a021d0f9a5293e16
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1704175773405
+status: 3
+tags: []
+user_id: omarsaaoui

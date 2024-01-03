@@ -29,6 +29,7 @@ from sklearn import metrics
 from sklearn.metrics import f1_score,recall_score,accuracy_score,precision_score,confusion_matrix,classification_report
 from sklearn.ensemble import RandomForestRegressor
 #from sklearn.linear_model import LinearRegression
+import xgboost as xgb
 def read_params(config_path):
     """
     read parameters from the params.yaml file
@@ -118,7 +119,8 @@ def train_and_evaluate(config_path):
 
         model_dir = config["model_dir"]
         model_webapp_dir= config["model_webapp_dir"]
-        model = MultinomialNB(alpha=alpha,fit_prior=fit_prior)
+        #model = MultinomialNB(alpha=alpha,fit_prior=fit_prior)
+        model = xgb.XGBClassifier(n_jobs=1)
         model.fit(xtrain_cv, train_y.ravel())
         y_pred = model.predict(xtest_cv)
         mean_squared_error, r2_score, accuracy = accuracymeasures(test_y,y_pred,'weighted')

@@ -14,3 +14,4 @@ gunicorn
 Jinja2
 Werkzeug
 nltk
+mlflow==2.9.2
