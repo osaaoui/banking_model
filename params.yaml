@@ -16,13 +16,15 @@ processed_data_config:
 mlflow_config:
   artifacts_dir: artifacts
   experiment_name: model_iteration1
-  run_name: multiNB
-  registered_model_name: multiNomial_model
+  run_name: xgboost
+  registered_model_name: xgb_model
   remote_server_uri: http://localhost:5000
  
-multiNB: 
-  alpha: 1.0
-  fit_prior: True
+xgboost: 
+  learning_rate: 0.1
+  n_estimators: 1000
+  max_depth: 5
+  n_jobs: -1
 
 model_dir: models/model.joblib
 

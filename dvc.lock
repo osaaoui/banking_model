@@ -49,9 +49,11 @@ stages:
       size: 1033919073
     - path: src/models/train_model.py
       hash: md5
-      md5: 039dabe207d85fadaaa1214862f4e1c6
-      size: 6390
+      md5: 7c477d7032db2dad99822846a3439bfa
+      size: 6817
     params:
       params.yaml:
-        multiNB.alpha: 1.0
-        multiNB.fit_prior: true
+        xgboost.learning_rate: 0.1
+        xgboost.max_depth: 5
+        xgboost.n_estimators: 1000
+        xgboost.n_jobs: -1

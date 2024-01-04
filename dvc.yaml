@@ -23,5 +23,7 @@ stages:
     - data/processed/churn_test.csv
     - src/models/train_model.py
     params:
-    - multiNB.alpha
-    - multiNB.fit_prior
+    - xgboost.learning_rate
+    - xgboost.n_estimators
+    - xgboost.max_depth
+    - xgboost.n_jobs

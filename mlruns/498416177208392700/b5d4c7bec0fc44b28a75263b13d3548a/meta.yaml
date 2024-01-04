@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/omarsaaoui/Documents/bdeb/2023/session_automne2023/cours_projet_synthese/projet/banking_model/mlruns/498416177208392700/b5d4c7bec0fc44b28a75263b13d3548a/artifacts
+end_time: 1704388713280
+entry_point_name: ''
+experiment_id: '498416177208392700'
+lifecycle_stage: active
+run_id: b5d4c7bec0fc44b28a75263b13d3548a
+run_name: wistful-perch-303
+run_uuid: b5d4c7bec0fc44b28a75263b13d3548a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1704388660223
+status: 3
+tags: []
+user_id: omarsaaoui

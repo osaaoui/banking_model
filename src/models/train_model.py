@@ -98,8 +98,12 @@ def train_and_evaluate(config_path):
     test_data_path = config["processed_data_config"]["test_data_csv"]
     target = config["raw_data_config"]["target"]
     
-    alpha=config["multiNB"]["alpha"]
-    fit_prior=config["multiNB"]["fit_prior"]
+    #alpha=config["multiNB"]["alpha"]
+    #fit_prior=config["multiNB"]["fit_prior"]
+    learning_rate=config["xgboost"]["learning_rate"]
+    n_estimators=config["xgboost"]["n_estimators"]
+    max_depth=config["xgboost"]["max_depth"]
+    n_jobs=config["xgboost"]["n_jobs"]
     
     train = pd.read_csv(train_data_path, sep=",")
     test = pd.read_csv(test_data_path, sep=",")
@@ -120,14 +124,17 @@ def train_and_evaluate(config_path):
         model_dir = config["model_dir"]
         model_webapp_dir= config["model_webapp_dir"]
         #model = MultinomialNB(alpha=alpha,fit_prior=fit_prior)
-        model = xgb.XGBClassifier(n_jobs=1)
+        model = xgb.XGBClassifier(learning_rate=learning_rate,n_estimators=n_estimators, max_depth=max_depth, n_jobs=n_jobs )
         model.fit(xtrain_cv, train_y.ravel())
         y_pred = model.predict(xtest_cv)
         mean_squared_error, r2_score, accuracy = accuracymeasures(test_y,y_pred,'weighted')
         joblib.dump(model, model_dir)
         joblib.dump(cv, "vectorizer.pkl")
 
-        mlflow.log_param("test_size", test_size)
+        mlflow.log_param("learning_rate", learning_rate)
+        mlflow.log_param("n_estimators", n_estimators)
+        mlflow.log_param("max_depth", max_depth)
+        mlflow.log_param("n_jobs", n_jobs)
         mlflow.log_metric("mean_squared_error", mean_squared_error)
         mlflow.log_metric("r2_score", r2_score)
         mlflow.log_metric("accuracy", accuracy)
