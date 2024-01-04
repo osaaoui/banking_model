@@ -140,6 +140,25 @@ def train_and_evaluate(config_path):
         mlflow.log_metric("accuracy", accuracy)
 
 
+        # # For remote server only (Dagshub)
+        remote_server_uri = "https://dagshub.com/osaaoui/banking_model.mlflow"
+        mlflow.set_tracking_uri(remote_server_uri)
+
+
+        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+
+        # Model registry does not work with file store
+        if tracking_url_type_store != "file":
+            # Register the model
+            # There are other ways to use the Model Registry, which depends on the use case,
+            # please refer to the doc for more information:
+            # https://mlflow.org/docs/latest/model-registry.html#api-workflow
+            mlflow.sklearn.log_model(
+                model, "model", registered_model_name="xgb_model")
+        else:
+            mlflow.sklearn.log_model(model, "model")
+
+
 ################### MLFLOW ###############################
     #mlflow_config = config["mlflow_config"]
     #remote_server_uri = mlflow_config["remote_server_uri"]
