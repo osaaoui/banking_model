@@ -28,9 +28,9 @@ def predict():
 def predict_api():
     data = request.get_json(force=True)  # Get data posted as a json
     email = data['content']
-    prediction = model_predict(email)
+    prediction_category, prediction_issue = model_predict(email)
     #result= model_predict(email)
-    return jsonify({'prediction': prediction})  # Return prediction
+    return jsonify({'prediction_category': prediction_category, 'Prediction_issue': prediction_issue})  # Return prediction
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
