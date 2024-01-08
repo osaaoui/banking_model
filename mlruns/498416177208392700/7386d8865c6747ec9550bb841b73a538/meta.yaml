@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/omarsaaoui/Documents/bdeb/2023/session_automne2023/cours_projet_synthese/projet/banking_model/mlruns/498416177208392700/7386d8865c6747ec9550bb841b73a538/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '498416177208392700'
+lifecycle_stage: active
+run_id: 7386d8865c6747ec9550bb841b73a538
+run_name: luxuriant-mare-653
+run_uuid: 7386d8865c6747ec9550bb841b73a538
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1704670585756
+status: 1
+tags: []
+user_id: omarsaaoui

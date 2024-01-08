@@ -9,20 +9,20 @@ stages:
       size: 1642093681
     - path: src/data/load_data.py
       hash: md5
-      md5: 94458b3a483d518dcf873c91ba5b3faa
-      size: 1463
+      md5: 5ec72bece27d16ff1e8bf43638530af0
+      size: 1501
     outs:
     - path: data/raw/train.csv
       hash: md5
-      md5: 277a56f94b2ade1440077dddf8178dca
-      size: 1292751934
+      md5: 0fb1c1470037445a6ab95249178c271b
+      size: 1347055936
   split_data:
     cmd: python3 src/data/split_data.py --config=params.yaml
     deps:
     - path: data/raw/train.csv
       hash: md5
-      md5: 277a56f94b2ade1440077dddf8178dca
-      size: 1292751934
+      md5: 0fb1c1470037445a6ab95249178c271b
+      size: 1347055936
     - path: src/data/split_data.py
       hash: md5
       md5: f87a3f959c739f7fd381ac0630e2a9ce
@@ -30,30 +30,51 @@ stages:
     outs:
     - path: data/processed/churn_test.csv
       hash: md5
-      md5: 77480d38199d99297136cb9360393df9
-      size: 258832898
+      md5: 57bebff2926f02652e670c83f4d81b2e
+      size: 269669008
     - path: data/processed/churn_train.csv
       hash: md5
-      md5: 6c4ef0cc4808b558fa2763c84143affa
-      size: 1033919073
+      md5: ff1dfec9b0d989fc2daa42407ce8b092
+      size: 1077386971
   model_train:
     cmd: python3 src/models/train_model.py --config=params.yaml
     deps:
     - path: data/processed/churn_test.csv
       hash: md5
-      md5: 77480d38199d99297136cb9360393df9
-      size: 258832898
+      md5: 57bebff2926f02652e670c83f4d81b2e
+      size: 269669008
     - path: data/processed/churn_train.csv
       hash: md5
-      md5: 6c4ef0cc4808b558fa2763c84143affa
-      size: 1033919073
+      md5: ff1dfec9b0d989fc2daa42407ce8b092
+      size: 1077386971
     - path: src/models/train_model.py
       hash: md5
-      md5: f6cddc03fb866f668a5536435ddfedb7
-      size: 7611
+      md5: c7cf8c69f99bb21472ac7a85aef85b33
+      size: 7925
     params:
       params.yaml:
-        xgboost.learning_rate: 0.1
+        xgboost.learning_rate: 0.2
+        xgboost.max_depth: 5
+        xgboost.n_estimators: 1000
+        xgboost.n_jobs: -1
+  issue_model:
+    cmd: python3 src/models/issue_model.py --config=params.yaml
+    deps:
+    - path: data/processed/churn_test.csv
+      hash: md5
+      md5: 57bebff2926f02652e670c83f4d81b2e
+      size: 269669008
+    - path: data/processed/churn_train.csv
+      hash: md5
+      md5: ff1dfec9b0d989fc2daa42407ce8b092
+      size: 1077386971
+    - path: src/models/issue_model.py
+      hash: md5
+      md5: 9cf3d2e210976542d95ee2e43a74587c
+      size: 6787
+    params:
+      params.yaml:
+        xgboost.learning_rate: 0.2
         xgboost.max_depth: 5
         xgboost.n_estimators: 1000
         xgboost.n_jobs: -1

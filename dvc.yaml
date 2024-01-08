@@ -27,3 +27,14 @@ stages:
     - xgboost.n_estimators
     - xgboost.max_depth
     - xgboost.n_jobs
+  issue_model:
+    cmd: python3 src/models/issue_model.py --config=params.yaml
+    deps:
+    - data/processed/churn_train.csv
+    - data/processed/churn_test.csv
+    - src/models/issue_model.py
+    params:
+    - xgboost.learning_rate
+    - xgboost.n_estimators
+    - xgboost.max_depth
+    - xgboost.n_jobs

@@ -68,6 +68,8 @@ def get_feat_and_target(df,target):
     input: dataframe and target column
     output: two dataframes for x and y 
     """
+
+    print("DF columns: ", df.columns)
     df_grouped= df.groupby(['Product'])
     df_balanced =df_grouped.apply(lambda x: x.sample(df_grouped.size().min()).reset_index(drop=True))
     df_balanced = df_balanced.droplevel(['Product'])
@@ -81,13 +83,17 @@ def get_feat_and_target(df,target):
     #print("Categories mapping: ", id_to_category.items())
     #x=df.loc[:, 0:7]
     #y=df.iloc[:, 7].values.reshape(-1,1)
-    
-
+    data=df_balanced[["Product", "clean_text", "Issue"]].copy()
+    data.columns=["category", "complaint", "Issue"]
+    #print("df_balanced. Shape: ", df_balanced.shape)
+    #print("Columns : ", df_balanced.columns)
+    data.to_csv('issues.csv', index=False,encoding='utf-8')
     #bagofword_vec = count_vec.fit_transform(data['complaint'])
     #labels =data.category_id
     x=df_balanced.loc[:, 'clean_text']
     y=df_balanced.loc[:, 'category_id']
     print("X. Head: ", x.head(2))
+    
 
     
     return x,y    
