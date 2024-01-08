@@ -14,7 +14,7 @@ def model_predict(email):
     tokenized_email = cv.transform([email]) # X 
     prediction_category = clf.predict(tokenized_email)
     prediction_issue= issue_model.predict(tokenized_email)
-    print("Prediction: ", prediction)
+    print("Prediction: ", prediction_category)
     print("Prediction_issue: ", prediction_issue)
     prediction= (prediction_category, prediction_issue)
-    return result
+    return prediction
