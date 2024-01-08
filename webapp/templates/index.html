@@ -35,21 +35,21 @@
     <div>
         {% if prediction[0] ==0 %}
         <h2 style="color: red"><span style="color: green">Category is: </span> Checking or savings account</h2>
-        {% elif prediction ==1 %}
+        {% elif prediction[0] ==1 %}
         <h2 style="color: red"><span style="color: green">Category is: </span>Credit card or prepaid card</h2>
-        {% elif prediction ==2 %}
+        {% elif prediction[0] ==2 %}
         <h2 style="color: red"><span style="color: green">Category is: </span>Credit reporting, credit repair services, or other personal consumer reports</h2>
-        {% elif prediction ==3 %}
+        {% elif prediction[0] ==3 %}
         <h2 style="color: red"><span style="color: green">Category is: </span>Debt collection</h2>
-        {% elif prediction ==4 %}
+        {% elif prediction[0] ==4 %}
         <h2 style="color: red"><span style="color: green">Category is: </span>Money transfer, virtual currency, or money service</h2>
-        {% elif prediction ==5 %}
+        {% elif prediction[0] ==5 %}
         <h2 style="color: red"><span style="color: green">Category is: </span>Mortgage</h2>
-        {% elif prediction ==6 %}
+        {% elif prediction[0] ==6 %}
         <h2 style="color: red"><span style="color: green">Category is: </span>Payday loan, title loan, or personal loan</h2>
-        {% elif prediction ==7 %}
+        {% elif prediction[0] ==7 %}
         <h2 style="color: red"><span style="color: green">Category is: </span>Student loan</h2>
-        {% elif prediction==8 %}
+        {% elif prediction[0]==8 %}
         <h2 style="color: red"><span style="color: green">Category is: </span>Vehicle loan or lease</h2>
         {% else %}
         <h2 style="color: green">Please enter another complaint!</h2>
