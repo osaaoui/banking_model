@@ -20,8 +20,8 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     email = request.form.get('content')
-    prediction = model_predict(email)
-    return render_template("index.html", prediction=prediction, email=email)
+    prediction_category, prediction_issue = model_predict(email)
+    return render_template("index.html", prediction_category=prediction_category,prediction_issue=prediction_issue, email=email)
 
 # Create an API endpoint
 @app.route('/api/predict', methods=['POST'])

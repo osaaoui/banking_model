@@ -25,7 +25,7 @@
                 autocomplete="off">{{ email }}</textarea>
             <div>
                 <button type="submit">
-                    Button
+                    Predict
                 </button>
                 <a href="/">Reset</a>
             </div>
@@ -55,7 +55,8 @@
         <h2 style="color: green">Please enter another complaint!</h2>
         {% endif %}
         <!-- <p id="display"></p> -->
-
+</div>
+<div>
         {% if prediction_issue ==0 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span> Managing an account</h2>
         {% elif prediction_issue ==1 %}
