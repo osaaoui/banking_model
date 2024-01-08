@@ -33,7 +33,7 @@
 
     </div>
     <div>
-        {% if result[0] ==0 %}
+        {% if prediction[0] ==0 %}
         <h2 style="color: red"><span style="color: green">Category is: </span> Checking or savings account</h2>
         {% elif prediction ==1 %}
         <h2 style="color: red"><span style="color: green">Category is: </span>Credit card or prepaid card</h2>
@@ -56,37 +56,37 @@
         {% endif %}
         <!-- <p id="display"></p> -->
 
-        {% if result[1] ==0 %}
+        {% if prediction[1] ==0 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span> Managing an account</h2>
-        {% elif result[1] ==1 %}
+        {% elif prediction[1] ==1 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Incorrect information on your report</h2>
-        {% elif result[1] ==2 %}
+        {% elif prediction[1] ==2 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Improper use of your report</h2>
-        {% elif result[1] ==3 %}
+        {% elif prediction[1] ==3 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Problem with a credit reporting company's investigation into an existing problem</h2>
-        {% elif result[1] ==4 %}
+        {% elif prediction[1] ==4 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Problem with a company's investigation into an existing problem</h2>
-        {% elif result[1] ==5 %}
+        {% elif prediction[1] ==5 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Problem with a purchase shown on your statement</h2>
-        {% elif result[1] ==6 %}
+        {% elif prediction[1] ==6 %}
         <h2 style="color: red"><span style="color: green">Incorrect information on credit report</h2>
-        {% elif result[1] ==7 %}
+        {% elif prediction[1] ==7 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Written notification about debt</h2>
-        {% elif result[1]==8 %}
+        {% elif prediction[1]==8 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Attempts to collect debt not owed</h2>
-        {% elif result[1]==8 %}
+        {% elif prediction[1]==8 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Cont'd attempts collect debt not owed</h2>
         {% elif prediction==8 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>False statements or representation</h2>
         {% elif prediction==8 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Took or threatened to take negative or legal action</h2>
-        {% elif result[1]==8 %}
+        {% elif prediction[1]==8 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Communication tactics</h2>
-        {% elif result[1]==8 %}
+        {% elif prediction[1]==8 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Trouble during payment process</h2>
-        {% elif result[1]==8 %}
+        {% elif prediction[1]==8 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Struggling to pay mortgage</h2>
-        {% elif result[1]==8 %}
+        {% elif prediction[1]==8 %}
         <h2 style="color: red"><span style="color: green">Issue is: </span>Dealing with your lender or service</h2>
         {% else %}
         <h2 style="color: green">Please enter another complaint!</h2>

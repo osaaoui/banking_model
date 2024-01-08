@@ -12,9 +12,9 @@ def model_predict(email):
     if email == "":
         return ""
     tokenized_email = cv.transform([email]) # X 
-    prediction = clf.predict(tokenized_email)
+    prediction_category = clf.predict(tokenized_email)
     prediction_issue= issue_model.predict(tokenized_email)
     print("Prediction: ", prediction)
     print("Prediction_issue: ", prediction_issue)
-    result= (prediction, prediction_issue)
+    prediction= (prediction_category, prediction_issue)
     return result
