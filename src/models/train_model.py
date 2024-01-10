@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 # NLTK
 import nltk
 from nltk.corpus import stopwords
+import pickle
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -150,7 +151,7 @@ def train_and_evaluate(config_path):
             outfile.write("r2_score:  {0:2.1f} \n".format(r2_score))
             outfile.write("accuracy: {0:2.1f}\n".format(accuracy))
 
-
+            #pickle.dump('metrics.txt')
         # # For remote server only (Dagshub)
         remote_server_uri = "https://dagshub.com/osaaoui/banking_model.mlflow"
         mlflow.set_tracking_uri(remote_server_uri)
