@@ -17,6 +17,8 @@ jobs:
           # Write your CML report
           echo '## Metriques:' >> reports.md
           cat metrics.txt >> reports.md
+          echo "![](./plot.png)" >> reports.md
+          cml comment create reports.md
           git config --global user.email "saaoui@gmail.com"
           git config --global user.name "osaaoui"
           git add reports.md metrics.txt
