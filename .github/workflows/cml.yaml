@@ -1,1 +1,24 @@
 
+name: Banking complaints classification model
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: cml_run
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Your ML workflow goes here
+          pip install -r requirements.txt
+          python 01_prod_regression_ci__tutorial.py
+          # Write your CML report
+          echo '## Metriques:' >> reports.md
+          cat metrics.txt >> reports.md
+          git config --global user.email "saaoui@gmail.com"
+          git config --global user.name "osaaoui"
+          git add reports.md metrics.txt
+          git commit -m "pousser vers github repository"
+          git push origin HEAD:main
