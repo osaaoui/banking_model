@@ -145,6 +145,11 @@ def train_and_evaluate(config_path):
         mlflow.log_metric("r2_score", r2_score)
         mlflow.log_metric("accuracy", accuracy)
 
+        #Write scores to a file
+        with open("metrics.txt", 'w') as outfile:
+            outfile.write("r2_score:  {0:2.1f} \n".format(r2_score))
+            outfile.write("accuracy: {0:2.1f}\n".format(accuracy))
+
 
         # # For remote server only (Dagshub)
         remote_server_uri = "https://dagshub.com/osaaoui/banking_model.mlflow"
