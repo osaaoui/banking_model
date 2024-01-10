@@ -1,5 +1,5 @@
 
-name: Banking complaints classification model
+name: CML
 on: [push]
 jobs:
   run:
