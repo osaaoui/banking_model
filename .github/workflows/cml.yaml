@@ -1,5 +1,5 @@
 
-name: CML
+name: Banking complaints classification
 on: [push]
 jobs:
   run:
@@ -18,7 +18,7 @@ jobs:
           #echo '## Metriques:' >> report.md
           cat metrics.txt >> report.md
           echo "![](./plot.png)" >> report.md
-          cml comment create report.md
+          cml-send-comment report.md
           
           git config --global user.email "saaoui@gmail.com"
           git config --global user.name "osaaoui"
