@@ -154,7 +154,7 @@ def train_and_evaluate(config_path):
         with open("metrics.txt", 'w') as outfile:
             outfile.write("r2_score:  {0:2.2f} \n".format(r2_score))
             outfile.write("accuracy: {0:2.2f}\n".format(accuracy))
-            outfile.write("Classification Report:\n".format(classification_report(test_y, y_pred)))
+            #outfile.write("Classification Report:\n".format(classification_report(test_y, y_pred)))
 
             #pickle.dump('metrics.txt')
         # # For remote server only (Dagshub)

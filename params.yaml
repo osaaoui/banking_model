@@ -24,7 +24,7 @@ mlflow_config:
 xgboost: 
   learning_rate: 0.3
   n_estimators: 1500
-  max_depth: 4
+  max_depth: 5
   n_jobs: -1
 
 model_dir: models/model.joblib

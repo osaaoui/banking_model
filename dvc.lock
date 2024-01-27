@@ -49,12 +49,12 @@ stages:
       size: 1077386971
     - path: src/models/train_model.py
       hash: md5
-      md5: a44c3e6927092102ba90983b32490f04
-      size: 8450
+      md5: a89939a25e612133eaceee3a9f43452f
+      size: 8451
     params:
       params.yaml:
         xgboost.learning_rate: 0.3
-        xgboost.max_depth: 4
+        xgboost.max_depth: 5
         xgboost.n_estimators: 1500
         xgboost.n_jobs: -1
   issue_model:
@@ -75,6 +75,6 @@ stages:
     params:
       params.yaml:
         xgboost.learning_rate: 0.3
-        xgboost.max_depth: 4
+        xgboost.max_depth: 5
         xgboost.n_estimators: 1500
         xgboost.n_jobs: -1
