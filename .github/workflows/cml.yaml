@@ -18,8 +18,8 @@ jobs:
           #echo '## Metriques:' >> report.md
           cat metrics.txt >> report.md
           echo "## Data viz" >> report.md
-          cml-publish feature_importance.png --md >> report.md
-          cml-publish residuals.png --md >> report.md
+          cml-publish classification_report.png --md >> report.md
+          #cml-publish residuals.png --md >> report.md
           #echo "![](./plot.png)" >> report.md
           cml-send-comment report.md
           
