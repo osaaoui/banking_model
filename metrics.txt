@@ -1,2 +1,2 @@
-r2_score:  0.79 
-accuracy: 0.80
+r2_score:  0.80 
+accuracy: 0.81

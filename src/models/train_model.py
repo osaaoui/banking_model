@@ -43,6 +43,19 @@ def read_params(config_path):
         config = yaml.safe_load(yaml_file)
     return config
 
+def plot_confusion_matrix(y_true, y_pred, label_list, title= "Confusion matrix"):
+    conf_mat = confusion_matrix(y_true, y_pred, labels=label_list)
+    print(conf_mat)
+    fig, ax = plt.subplots()
+    sns.heatmap(conf_mat, annot=True, fmt="d", xticklabels=label_list, yticklabels=label_list)
+    plt.ylabel("True")
+    plt.xlabel("Pred")
+    plt.title(title)
+
+    plt.tight_layout()
+
+    return fig
+
 def plot_classification_report(y_true, y_pred, label_list, title= "Classification report"):
     report = classification_report(y_true, y_pred, labels=label_list, output_dict=True)
     df_report = pd.DataFrame(report).transpose()
@@ -167,9 +180,9 @@ def train_and_evaluate(config_path):
         y_pred = y_pred
         label_list = [0,1,2,3,4,5,6,7]
 
-        #fig1 = plot_confusion_matrix(y_true, y_pred, label_list, title="My Confusion Matrix")
+        fig1 = plot_confusion_matrix(y_true, y_pred, label_list, title="My Confusion Matrix")
         fig2 = plot_classification_report(y_true, y_pred, label_list, title="My Classification Report")
-        #fig1.savefig('confusion_matrix.png')
+        fig1.savefig('confusion_matrix.png')
         fig2.savefig('classification_report.png')
         #print("Mapping from Integers to Categories: ", id_to_category)
 
