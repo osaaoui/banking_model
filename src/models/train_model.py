@@ -11,6 +11,8 @@ from urllib.parse import urlparse
 import nltk
 from nltk.corpus import stopwords
 import pickle
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -40,6 +42,18 @@ def read_params(config_path):
     with open(config_path) as yaml_file:
         config = yaml.safe_load(yaml_file)
     return config
+
+def plot_classification_report(y_true, y_pred, label_list, title= "Classification report"):
+    report = classification_report(y_true, y_pred, labels=label_list, output_dict=True)
+    df_report = pd.DataFrame(report).transpose()
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+    sns.heatmap(df_report.iloc[:-1, :-1], annot=True)
+    plt.title(title)
+
+    plt.tight_layout()
+
+    return fig
 
 def accuracymeasures(y_test,predictions,avg_method):
     mean_squared_error=np.sqrt(metrics.mean_squared_error(y_test, predictions))
@@ -149,6 +163,15 @@ def train_and_evaluate(config_path):
         # Classification Report
         from sklearn.metrics import classification_report
         #print(classification_report(test_y, y_pred))
+        y_true = test_y
+        y_pred = y_pred
+        label_list = [0,1,2,3,4,5,6,7]
+
+        #fig1 = plot_confusion_matrix(y_true, y_pred, label_list, title="My Confusion Matrix")
+        fig2 = plot_classification_report(y_true, y_pred, label_list, title="My Classification Report")
+        #fig1.savefig('confusion_matrix.png')
+        fig2.savefig('classification_report.png')
+        #print("Mapping from Integers to Categories: ", id_to_category)
 
         #Write scores to a file
         with open("metrics.txt", 'w') as outfile:
