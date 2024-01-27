@@ -22,6 +22,6 @@ jobs:
           
           git config --global user.email "saaoui@gmail.com"
           git config --global user.name "osaaoui"
-          git add reports.md metrics.txt
+          git add report.md metrics.txt
           git commit -m "pousser vers github repository"
           git push origin HEAD:main
