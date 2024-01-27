@@ -22,9 +22,9 @@ mlflow_config:
   remote_server_uri: http://localhost:5000
  
 xgboost: 
-  learning_rate: 0.3
+  learning_rate: 0.2
   n_estimators: 1500
-  max_depth: 5
+  max_depth: 3
   n_jobs: -1
 
 model_dir: models/model.joblib
