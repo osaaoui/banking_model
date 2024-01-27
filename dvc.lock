@@ -49,8 +49,8 @@ stages:
       size: 1077386971
     - path: src/models/train_model.py
       hash: md5
-      md5: a04e58508cb0c0efac9769fb55ebe7b3
-      size: 8197
+      md5: a44c3e6927092102ba90983b32490f04
+      size: 8450
     params:
       params.yaml:
         xgboost.learning_rate: 0.3
